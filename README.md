@@ -1,3 +1,5 @@
+# simple chat room project where registered users can message each other by joining same room 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
