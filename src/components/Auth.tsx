@@ -1,26 +1,29 @@
-import { auth, provider } from "../firebase-config.js";
+import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import Cookies from "universal-cookie";
-import "../styles/Auth.css"
+import "../styles/Auth.css";
+
 const cookie = new Cookies();
 
-//creating a cokkie to store information about user 
-export const Auth = (props) => {
-  const {setAuth} = props
+type AuthProps = {
+  setAuth: (value: boolean) => void;
+};
+
+export const Auth = ({ setAuth }: AuthProps) => {
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       cookie.set("auth-token", result.user.refreshToken);
-      setAuth(true)
+      setAuth(true);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   return (
     <div className="auth">
       <p>Sign in With Google</p>
-      <button onClick={signInWithGoogle}>DO it </button>
+      <button onClick={signInWithGoogle}>DO it</button>
     </div>
   );
 };

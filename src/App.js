@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import "./App.css";
-import { Auth } from "./components/Auth";
+import { Auth } from "./components/Auth.tsx";
 import Cookies from "universal-cookie";
-import { Chat } from "./components/Chat";
+import { Chat } from "./components/Chat.tsx";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
 
